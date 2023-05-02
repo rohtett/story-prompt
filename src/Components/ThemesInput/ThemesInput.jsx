@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { cameliser } from './../../Workers'; //Components folder
+import { cameliser } from './../../Helpers';
 import './themesinput.scss';
 
 const ThemesInput = ({ label }) => {
   const [selected, setSelected] = useState(false);
   return (
-    <li className = 'themes__slider__section__input'>
-      <input className = 'themes__slider__section__input--input'
+    <li className = 'themes__slider__section'>
+      <input className = 'themes__slider__section--input'
         type = 'checkbox'
         checked = { selected }
         name = 'themes'
@@ -15,7 +15,7 @@ const ThemesInput = ({ label }) => {
           setSelected(selected => !selected)
         }}
       />
-      <label className = 'themes__slider__section__input--label' htmlFor = { cameliser(label) }> { label } </label>
+      <label className = 'themes__slider__section--label' htmlFor = { cameliser(label) }> { label } </label>
     </li>
   )
 }

@@ -17,8 +17,8 @@ const Themes = () => {
   }, [])
 
   return (
-    <div>
-      <ul className = "themes__slider__section" ref = { fantasyRef } >
+    <div className = 'themes' >
+      <ul className = 'themes__slider' ref = { fantasyRef } >
         <ThemesInput label = 'Alternate History' />
         <ThemesInput label = "Children's Story" />
         <ThemesInput label = 'Dark Fantasy' />
@@ -29,7 +29,7 @@ const Themes = () => {
         <ThemesInput label = 'Mythic' />
         <ThemesInput label = 'Sword and Sorcery' />
       </ul>
-      <ul className = "themes__slider__section" ref = { scifiRef } >
+      <ul className = "themes__slider" ref = { scifiRef } >
         <ThemesInput label = 'Aliens' />
         <ThemesInput label = 'Alternate/Parallel Universe' />
         <ThemesInput label = 'Apocalytic/Post-Apocalyptic' />
@@ -45,7 +45,7 @@ const Themes = () => {
         <ThemesInput label = 'Steam Punk' />
         <ThemesInput label = 'Utopia' />
       </ul>
-      <ul className = "themes__slider__section" ref = { historicalRef } >
+      <ul className = "themes__slider" ref = { historicalRef } >
         <ThemesInput label = 'Biography' />
         <ThemesInput label = 'Colonisation' />
         <ThemesInput label = 'Historical Romance' />

@@ -1,28 +1,46 @@
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
 .themes {
   &__slider {
+    background-color: white;
+    overflow-x: scroll;
+    display: flex;
+    list-style: none;
+    padding-bottom: 7px;
+    &::-webkit-scrollbar {
+      height: 7px;
+      display: none;
+    }
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        background-color: #D3D3D3;
+      }
+    }
     &__section {
-      background-color: white;
-      overflow-x: scroll;
-      display: flex;
-      list-style: none;
+      flex: 1 0 auto;
+    }
+    @include tablet {
+      padding-bottom: 0;
+      &::-webkit-scrollbar {
+        display: block;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        padding-bottom: 7px;
+      }
       &:hover {
         &::-webkit-scrollbar-thumb {
-          background-color: #D3D3D3;
+          background-color: transparent;
         }
-      }
-      &::-webkit-scrollbar {
-        height: 7px;
       }
       ::-webkit-scrollbar-track {
         background-color: #D3D3D3;
-        border-radius: 10px;
       }
       &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-        border-radius: 10px;
-      }
-      &__input {
-        flex: 1 0 auto;
+        background-color: #D3D3D3;
       }
     }
   }
