@@ -6,6 +6,9 @@
 
 .themes__slider__section {
   padding: 5px;
+  @include tablet {
+    padding: 10px;
+  }
   &--label {
     cursor: pointer;
     background-color: #D3D3D3;
@@ -13,6 +16,10 @@
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    @include tablet {
+      padding: 5px 5px;
+      font-size: 1.2em;
+    }
   }
   &--input {
     display: none;

@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { ThemesInput } from './../'; //Components folder
-import {  } from './../../Workers';
 import './themes.scss';
 
 const Themes = () => {
@@ -24,8 +23,10 @@ const Themes = () => {
         <ThemesInput label = 'Dark Fantasy' />
         <ThemesInput label = 'Fairy Tale' />
         <ThemesInput label = 'High Fantasy' />
-        <ThemesInput label = 'Isekai' />
+        <ThemesInput label = 'Reincarnation (Isekai)' />
         <ThemesInput label = 'Magical Realism' />
+        <ThemesInput label = 'Magical Technology' />
+        <ThemesInput label = 'Medieval' />
         <ThemesInput label = 'Mythic' />
         <ThemesInput label = 'Sword and Sorcery' />
       </ul>
@@ -36,6 +37,7 @@ const Themes = () => {
         <ThemesInput label = 'Biopunk' />
         <ThemesInput label = 'Cyberpunk' />
         <ThemesInput label = 'Dying Earth' />
+        <ThemesInput label = 'Futuristic' />
         <ThemesInput label = 'Immortality' />
         <ThemesInput label = 'Lost Worlds' />
         <ThemesInput label = 'Mind Transfer' />
@@ -48,10 +50,13 @@ const Themes = () => {
       <ul className = "themes__slider" ref = { historicalRef } >
         <ThemesInput label = 'Biography' />
         <ThemesInput label = 'Colonisation' />
+        <ThemesInput label = 'Contemporary' />
         <ThemesInput label = 'Historical Romance' />
+        <ThemesInput label = 'Historically Accurate' />
         <ThemesInput label = 'Military' />
+        <ThemesInput label = 'Monarchy' />
         <ThemesInput label = 'Nautical' />
-        <ThemesInput label = 'Speculative Fiction' />
+        <ThemesInput label = 'Speculative Fiction (Supernatural)' />
         <ThemesInput label = 'Western' />
       </ul>
     </div>

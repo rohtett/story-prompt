@@ -15,14 +15,6 @@
       height: 7px;
       display: none;
     }
-    &:hover {
-      &::-webkit-scrollbar-thumb {
-        background-color: #D3D3D3;
-      }
-    }
-    &__section {
-      flex: 1 0 auto;
-    }
     @include tablet {
       padding-bottom: 0;
       &::-webkit-scrollbar {
@@ -31,17 +23,17 @@
         scrollbar-width: none;  /* Firefox */
         padding-bottom: 7px;
       }
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
       &:hover {
         &::-webkit-scrollbar-thumb {
-          background-color: transparent;
+          background-color: #D3D3D3;
         }
       }
-      ::-webkit-scrollbar-track {
-        background-color: #D3D3D3;
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: #D3D3D3;
-      }
+    }
+    &__section {
+      flex: 1 0 auto;
     }
   }
 }

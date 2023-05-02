@@ -15,7 +15,7 @@ const ThemesInput = ({ label }) => {
           setSelected(selected => !selected)
         }}
       />
-      <label className = 'themes__slider__section--label' htmlFor = { cameliser(label) }> { label } </label>
+      <label className = 'themes__slider__section--label' htmlFor = { cameliser(label) } > { label } </label>
     </li>
   )
 }
