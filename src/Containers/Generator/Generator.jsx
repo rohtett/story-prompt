@@ -12,7 +12,7 @@ const Generator = () => {
     this.options = options;
     this.get = async() => {
       try {
-        const response = await fetch('http://localhost:3000/', {
+        const response = await fetch('https://story-prompt-server.fly.dev', {
           method: 'POST',
           body: JSON.stringify(this.options),
           headers: {
