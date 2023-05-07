@@ -2,7 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import { ThemesInput } from './../'; //Components folder
 import './themes.scss';
 
-const Themes = () => {
+const fantasy = ['Alternate History', 'Children\'s Story', 'Dark Fantasy', 'Fairy Tail', 'High Fantasy', 'Reincarnation (Isekai)', 'Magical Realism', 'Magical Technology', 'Medieval', 'Mythic', 'Sword and Sorcery'];
+
+const scifi = [ 'Aliens', 'Alternate/Parallel Universe', 'Apocalytic/Post-Apocalyptic', 'Biopunk', 'Cyberpunk', 'Dying Earth', 'Futuristic', 'Immortality', 'Lost Worlds', 'Mind Transfer', 'Robots/AI', 'Space Exploration', 'Time Travel', 'Steam Punk', 'Utopia'];
+
+const historical = ['Biography', 'Colonisation', 'Contemporary', 'Historical Romance', 'Historically Accurate', 'Military', 'Monarchy', 'Nautical', 'Speculative Fiction (Supernatural)', 'Western'];
+
+const Themes = ({ fantasyState, setFantasyState, scifiState, setScifiState, historicalState, setHistoricalState }) => {
   const [themes, setThemes] = useState([]);
 
   const fantasyRef = useRef(null);
@@ -18,46 +24,19 @@ const Themes = () => {
   return (
     <div className = 'themes' >
       <ul className = 'themes__slider' ref = { fantasyRef } >
-        <ThemesInput label = 'Alternate History' />
-        <ThemesInput label = "Children's Story" />
-        <ThemesInput label = 'Dark Fantasy' />
-        <ThemesInput label = 'Fairy Tale' />
-        <ThemesInput label = 'High Fantasy' />
-        <ThemesInput label = 'Reincarnation (Isekai)' />
-        <ThemesInput label = 'Magical Realism' />
-        <ThemesInput label = 'Magical Technology' />
-        <ThemesInput label = 'Medieval' />
-        <ThemesInput label = 'Mythic' />
-        <ThemesInput label = 'Sword and Sorcery' />
+        {fantasy.map((theme, index) => (
+          <ThemesInput setCheckboxes = { setFantasyState } label = { theme } index = { index } key = { theme } />
+        ))}
       </ul>
       <ul className = "themes__slider" ref = { scifiRef } >
-        <ThemesInput label = 'Aliens' />
-        <ThemesInput label = 'Alternate/Parallel Universe' />
-        <ThemesInput label = 'Apocalytic/Post-Apocalyptic' />
-        <ThemesInput label = 'Biopunk' />
-        <ThemesInput label = 'Cyberpunk' />
-        <ThemesInput label = 'Dying Earth' />
-        <ThemesInput label = 'Futuristic' />
-        <ThemesInput label = 'Immortality' />
-        <ThemesInput label = 'Lost Worlds' />
-        <ThemesInput label = 'Mind Transfer' />
-        <ThemesInput label = 'Robots/AI' />
-        <ThemesInput label = 'Space Exploration' />
-        <ThemesInput label = 'Time Travel' />
-        <ThemesInput label = 'Steam Punk' />
-        <ThemesInput label = 'Utopia' />
+      {scifi.map((theme, index) => (
+        <ThemesInput  setCheckboxes = { setScifiState } label = { theme } index = { index } key = { theme } />
+      ))}
       </ul>
       <ul className = "themes__slider" ref = { historicalRef } >
-        <ThemesInput label = 'Biography' />
-        <ThemesInput label = 'Colonisation' />
-        <ThemesInput label = 'Contemporary' />
-        <ThemesInput label = 'Historical Romance' />
-        <ThemesInput label = 'Historically Accurate' />
-        <ThemesInput label = 'Military' />
-        <ThemesInput label = 'Monarchy' />
-        <ThemesInput label = 'Nautical' />
-        <ThemesInput label = 'Speculative Fiction (Supernatural)' />
-        <ThemesInput label = 'Western' />
+      {historical.map((theme, index) => (
+        <ThemesInput  setCheckboxes = { setHistoricalState } label = { theme } index = { index } key = { theme } />
+      ))}
       </ul>
     </div>
   )
