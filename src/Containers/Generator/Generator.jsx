@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Themes } from './../../Components';
 import './generator.scss';
 
-const Generator = () => {
+const Generator = ( { setRequestState } ) => {
 
   const [fantasyState, setFantasyState] = useState([]);
   const [scifiState, setScifiState] = useState([]);
@@ -11,20 +11,16 @@ const Generator = () => {
   function Payload(options) {
     this.options = options;
     this.get = async() => {
-      try {
-        const response = await fetch('https://story-prompt-server.fly.dev', {
-          method: 'POST',
-          body: JSON.stringify(this.options),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-          },
-          cache: 'no-cache'
-      });
-      const data = await response.json();
-      return data;
-      } catch (error) {
-        console.log(error);
-      }
+      const response = await fetch('https://story-prompt-server.fly.dev', {
+        method: 'POST',
+        body: JSON.stringify(this.options),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8'
+        },
+        cache: 'no-cache'
+    });
+    const data = await response.json();
+    return data;
     }
   }
 
@@ -32,12 +28,20 @@ const Generator = () => {
     e.preventDefault();
     const options = [...fantasyState, ...scifiState, ...historicalState];
     const request = new Payload(options);
-    request.get().then(data => {
-      console.log('response:', data);
-    });
+    setRequestState('awaiting');
+    request.get()
+      .then(response => {
+        sessionStorage.setItem('response', response);
+        setRequestState('completed')
+      })
+      .catch(error => {
+        sessionStorage.setItem('error', error.message);
+        setRequestState('error');
+      });
   }
 
   return (
+
     <div className = 'generator'>
       <form onSubmit = { __handleSubmit }>
         <Themes
