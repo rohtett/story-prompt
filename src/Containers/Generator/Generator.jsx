@@ -31,7 +31,7 @@ const Generator = ( { setRequestState } ) => {
     setRequestState('awaiting');
     request.get()
       .then(response => {
-        sessionStorage.setItem('response', response);
+        sessionStorage.setItem('response', JSON.stringify(response));
         setRequestState('completed')
       })
       .catch(error => {
